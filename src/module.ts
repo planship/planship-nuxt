@@ -1,4 +1,4 @@
-import { addPlugin, addServerHandler, createResolver, defineNuxtModule } from '@nuxt/kit'
+import { addPlugin, addServerHandler, createResolver, defineNuxtModule, addImports } from '@nuxt/kit'
 
 // Module options TypeScript interface definition
 export interface ModuleOptions {}
@@ -14,15 +14,20 @@ export default defineNuxtModule<ModuleOptions>({
     const resolver = createResolver(import.meta.url)
     addServerHandler({
       route: '/api/planship/token',
-      handler: resolver.resolve('./runtime/tokenHandler'),
+      handler: resolver.resolve('./runtime/server/api/tokenHandler'),
     })
     addPlugin({
-      src: resolver.resolve('./runtime/planshipClientPlugin'),
+      src: resolver.resolve('./runtime/plugins/planshipClientPlugin'),
       mode: 'client',
     })
     addPlugin({
-      src: resolver.resolve('./runtime/planshipServerPlugin'),
+      src: resolver.resolve('./runtime/plugins/planshipServerPlugin'),
       mode: 'server',
+    })
+    addImports({
+      from: resolver.resolve('./runtime/composables/usePlanshipApiClient'),
+      name: 'usePlanshipApiClient',
+      as: 'usePlanshipApiClient',
     })
   },
 })
