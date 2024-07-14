@@ -8,12 +8,9 @@ dependencies:
   '@nuxt/kit':
     specifier: ^3.12.3
     version: 3.12.3(magicast@0.3.4)(rollup@3.29.4)
-  '@planship/nuxt':
-    specifier: 0.0.3-alpha4
-    version: 0.0.3-alpha4(rollup@3.29.4)
   '@planship/vue':
-    specifier: 0.0.2-alpha1
-    version: 0.0.2-alpha1
+    specifier: 0.0.2-alpha3
+    version: 0.0.2-alpha3
   defu:
     specifier: ^6.1.4
     version: 6.1.4
@@ -1982,20 +1979,8 @@ packages:
     resolution: {integrity: sha512-hYnp0WXUsgbOE/IRlN9Jxjyp47+a425lOjtwO3DYGysk+jHTcnY9GgRsevnctXjE5kOvXJKXHnkvlJfFZbLH3w==}
     dev: false
 
-  /@planship/nuxt@0.0.3-alpha4(rollup@3.29.4):
-    resolution: {integrity: sha512-X5yeWWqN9J6R4K2uAESw69Nzqbsy/ASQ4Js4aSlI0Icu0RLyoPfriCn+APFHZ814IbhprgGWQ1ftSX3sELq0dg==}
-    dependencies:
-      '@nuxt/kit': 3.12.3(magicast@0.3.4)(rollup@3.29.4)
-      '@planship/vue': 0.0.2-alpha1
-      defu: 6.1.4
-    transitivePeerDependencies:
-      - magicast
-      - rollup
-      - supports-color
-    dev: false
-
-  /@planship/vue@0.0.2-alpha1:
-    resolution: {integrity: sha512-kHo0ld6UMAytfkuXF9CKU5euLk8vHTedso62pVG8kDGb+Dj20CnS3SWj8DV3I8FQtCP4x/Vpgo67wuo9tElWQw==}
+  /@planship/vue@0.0.2-alpha3:
+    resolution: {integrity: sha512-lYph7tGoJlOuJk7wpMvuup1BCLCmJ03jz0HxU7UbFSFwG1Ckk3pXZn9ufIAgTLUe7BnjV/zeUN2w3W9So3quEA==}
     dependencies:
       '@planship/fetch': 0.2.3
     dev: false
