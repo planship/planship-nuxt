@@ -57,6 +57,10 @@ export default defineNuxtModule<ModuleOptions>({
       mode: 'server',
     })
 
+    nuxt.hook('imports:dirs', (dirs) => {
+      dirs.push(resolver.resolve('./runtime/composables'))
+    })
+
     nuxt.hook('nitro:config', (nitroConfig) => {
       nitroConfig.alias = nitroConfig.alias || {}
       nitroConfig.alias['#planship/server'] = resolver.resolve('./runtime/server/services')

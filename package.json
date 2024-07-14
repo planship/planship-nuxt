@@ -1,6 +1,6 @@
 {
   "name": "@planship/nuxt",
-  "version": "0.0.4-alpha5",
+  "version": "0.0.5-alpha1",
   "description": "Planship Nuxt module",
   "repository": "https://github.com/planship/planship-nuxt",
   "license": "MIT",
