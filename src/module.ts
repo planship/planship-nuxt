@@ -1,4 +1,4 @@
-import { addPlugin, addServerHandler, createResolver, defineNuxtModule } from '@nuxt/kit'
+import { addPlugin, addServerHandler, addTemplate, createResolver, defineNuxtModule } from '@nuxt/kit'
 import { defu } from 'defu'
 // Module options TypeScript interface definition
 export interface ModuleOptions {
@@ -46,13 +46,30 @@ export default defineNuxtModule<ModuleOptions>({
       route: '/api/planship/token',
       handler: resolver.resolve('./runtime/server/api/tokenHandler'),
     })
+
     addPlugin({
       src: resolver.resolve('./runtime/plugins/planshipClientPlugin'),
       mode: 'client',
     })
+
     addPlugin({
       src: resolver.resolve('./runtime/plugins/planshipServerPlugin'),
       mode: 'server',
+    })
+
+    nuxt.hook('nitro:config', (nitroConfig) => {
+      nitroConfig.alias = nitroConfig.alias || {}
+      nitroConfig.alias['#planship/server'] = resolver.resolve('./runtime/server/services')
+    })
+
+    addTemplate({
+      filename: 'types/planship.d.ts',
+      getContents: () =>
+        [
+          'declare module \'#planship/server\' {',
+          `  const useServerApiClient: typeof import('${resolver.resolve('./runtime/server/services')}').useServerApiClient`,
+          '}',
+        ].join('\n'),
     })
   },
 })
