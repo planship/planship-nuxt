@@ -8,9 +8,15 @@ dependencies:
   '@nuxt/kit':
     specifier: ^3.12.3
     version: 3.12.3(magicast@0.3.4)(rollup@3.29.4)
+  '@planship/nuxt':
+    specifier: 0.0.3-alpha4
+    version: 0.0.3-alpha4(rollup@3.29.4)
   '@planship/vue':
     specifier: 0.0.2-alpha1
     version: 0.0.2-alpha1
+  defu:
+    specifier: ^6.1.4
+    version: 6.1.4
 
 devDependencies:
   '@nuxt/devtools':
@@ -1974,6 +1980,18 @@ packages:
 
   /@planship/models@0.2.2:
     resolution: {integrity: sha512-hYnp0WXUsgbOE/IRlN9Jxjyp47+a425lOjtwO3DYGysk+jHTcnY9GgRsevnctXjE5kOvXJKXHnkvlJfFZbLH3w==}
+    dev: false
+
+  /@planship/nuxt@0.0.3-alpha4(rollup@3.29.4):
+    resolution: {integrity: sha512-X5yeWWqN9J6R4K2uAESw69Nzqbsy/ASQ4Js4aSlI0Icu0RLyoPfriCn+APFHZ814IbhprgGWQ1ftSX3sELq0dg==}
+    dependencies:
+      '@nuxt/kit': 3.12.3(magicast@0.3.4)(rollup@3.29.4)
+      '@planship/vue': 0.0.2-alpha1
+      defu: 6.1.4
+    transitivePeerDependencies:
+      - magicast
+      - rollup
+      - supports-color
     dev: false
 
   /@planship/vue@0.0.2-alpha1:

@@ -3,10 +3,10 @@ import { defineNuxtPlugin, useRuntimeConfig, useState } from '#imports'
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PlanshipPlugin, {
-    slug: useRuntimeConfig().public.planshipProductSlug,
+    slug: useRuntimeConfig().public.planship.productSlug,
     auth: {
-      clientId: useRuntimeConfig().public.planshipApiClientId,
-      clientSecret: useRuntimeConfig().planshipApiClientSecret,
+      clientId: useRuntimeConfig().public.planship.clientId,
+      clientSecret: useRuntimeConfig().planship.clientSecret,
     },
     useState,
   })

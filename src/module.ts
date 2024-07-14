@@ -1,17 +1,47 @@
-import { addPlugin, addServerHandler, createResolver, defineNuxtModule, addImports } from '@nuxt/kit'
-
+import { addPlugin, addServerHandler, createResolver, defineNuxtModule } from '@nuxt/kit'
+import { defu } from 'defu'
 // Module options TypeScript interface definition
-export interface ModuleOptions {}
+export interface ModuleOptions {
+  productSlug: string
+  clientId: string
+  clientSecret: string
+}
+
+export * from './types'
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: '@planship/nuxt',
-    configKey: 'planship-nuxt',
+    configKey: 'planship',
+    compatibility: {
+      nuxt: '>=3.0.0',
+    },
   },
-  // Default configuration options of the Nuxt module
-  defaults: {},
-  setup(_options, _nuxt) {
+  // Default configuration options
+  defaults: {
+    productSlug: process.env.PLANSHIP_PRODUCT_SLUG as string,
+    clientId: process.env.PLANSHIP_API_CLIENT_ID as string,
+    clientSecret: process.env.PLANSHIP_API_CLIENT_SECRET as string,
+  },
+  setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
+
+    nuxt.options.runtimeConfig.public.planship = defu(nuxt.options.runtimeConfig.public.planship, {
+      productSlug: options.productSlug,
+      clientId: options.clientId,
+    })
+
+    nuxt.options.runtimeConfig.planship = defu(nuxt.options.runtimeConfig.planship, {
+      clientSecret: options.clientSecret,
+    })
+
+    if (!nuxt.options.runtimeConfig.public.planship.productSlug) {
+      console.error('Planship product slug is missing, set it either in `nuxt.config.js` or via PLANSHIP_PRODUCT_SLUG env variable')
+    }
+    if (!nuxt.options.runtimeConfig.public.planship.clientId || !nuxt.options.runtimeConfig.planship.clientSecret) {
+      console.error('Planship client credentials are missing, set it either in `nuxt.config.js` or via PLANSHIP_API_CLIENT_ID and PLANSHIP_API_CLIENT_SECRET variables')
+    }
+
     addServerHandler({
       route: '/api/planship/token',
       handler: resolver.resolve('./runtime/server/api/tokenHandler'),
@@ -23,11 +53,6 @@ export default defineNuxtModule<ModuleOptions>({
     addPlugin({
       src: resolver.resolve('./runtime/plugins/planshipServerPlugin'),
       mode: 'server',
-    })
-    addImports({
-      from: resolver.resolve('./runtime/composables/usePlanshipApiClient'),
-      name: 'usePlanshipApiClient',
-      as: 'usePlanshipApiClient',
     })
   },
 })
