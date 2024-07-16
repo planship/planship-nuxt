@@ -1,6 +1,6 @@
 {
   "name": "@planship/nuxt",
-  "version": "0.0.5-alpha2",
+  "version": "0.0.5-alpha3",
   "description": "Planship Nuxt module",
   "repository": "https://github.com/planship/planship-nuxt",
   "license": "MIT",
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.12.3",
-    "@planship/vue": "0.0.2-alpha3",
+    "@planship/vue": "0.0.2-alpha4",
     "defu": "^6.1.4"
   },
   "devDependencies": {

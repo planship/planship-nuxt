@@ -9,8 +9,8 @@ dependencies:
     specifier: ^3.12.3
     version: 3.12.3(magicast@0.3.4)(rollup@3.29.4)
   '@planship/vue':
-    specifier: 0.0.2-alpha3
-    version: 0.0.2-alpha3
+    specifier: 0.0.2-alpha4
+    version: 0.0.2-alpha4
   defu:
     specifier: ^6.1.4
     version: 6.1.4
@@ -1979,8 +1979,8 @@ packages:
     resolution: {integrity: sha512-hYnp0WXUsgbOE/IRlN9Jxjyp47+a425lOjtwO3DYGysk+jHTcnY9GgRsevnctXjE5kOvXJKXHnkvlJfFZbLH3w==}
     dev: false
 
-  /@planship/vue@0.0.2-alpha3:
-    resolution: {integrity: sha512-lYph7tGoJlOuJk7wpMvuup1BCLCmJ03jz0HxU7UbFSFwG1Ckk3pXZn9ufIAgTLUe7BnjV/zeUN2w3W9So3quEA==}
+  /@planship/vue@0.0.2-alpha4:
+    resolution: {integrity: sha512-vFzM32h+AyFhOf+WhR1JTG6NKMfOUrn2QkDnJq/Wwyb+0lNwjFuV09eTVaiitRnTwsWXefuzxGr63MW31t9vUQ==}
     dependencies:
       '@planship/fetch': 0.2.3
     dev: false

@@ -53,7 +53,7 @@ The `@planship/nuxt` module exports two composables implemented by the `@planshi
 
 #### `usePlanshipCustomer`
 
-Returns an instance of the [Planship Customer API client class](https://github.com/planship/planship-js/blob/master/packages/fetch/docs/interfaces/PlanshipCustomerApi.md) and customer entitlements.
+Returns an instance of the [Planship Customer API client](https://github.com/planship/planship-js/blob/master/packages/fetch/docs/interfaces/PlanshipCustomerApi.md) and customer entitlements.
 
 ```vue
 <script setup>
@@ -78,7 +78,7 @@ For more details and usage example see the [`@planship/vue` README](https://gith
 
 #### `usePlanship`
 
-Returns an intance of the [Planship API client class](https://github.com/planship/planship-js/blob/master/packages/fetch/docs/classes/Planship.md).
+Returns an intance of the [Planship API client](https://github.com/planship/planship-js/blob/master/packages/fetch/docs/interfaces/PlanshipApi.md).
 
 ```vue
 <script setup>
