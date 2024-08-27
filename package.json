@@ -1,6 +1,6 @@
 {
   "name": "@planship/nuxt",
-  "version": "0.3.0-alpha1",
+  "version": "0.3.0-alpha2",
   "description": "Planship SDK for Nuxt",
   "repository": "https://github.com/planship/planship-nuxt",
   "author": "pawel@planship.io",
@@ -19,10 +19,11 @@
     "dist"
   ],
   "scripts": {
-    "prepack": "nuxt-module-build build",
+    "build": "rm -rf dist && nuxt-module-build build",
     "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
     "lint": "eslint .",
-    "publish-alpha": "pnpm prepack && pnpm publish --tag alpha --no-git-checks"
+    "lint:fix": "eslint --fix .",
+    "publish:alpha": "pnpm build && pnpm publish --tag alpha --no-git-checks"
   },
   "dependencies": {
     "@nuxt/kit": "^3.12.3",

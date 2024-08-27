@@ -1,6 +1,6 @@
 import { addPlugin, addServerHandler, addTemplate, createResolver, defineNuxtModule } from '@nuxt/kit'
 import { defu } from 'defu'
-// Module options TypeScript interface definition
+
 export interface ModuleOptions {
   productSlug: string
   clientId: string
@@ -18,7 +18,6 @@ export default defineNuxtModule<ModuleOptions>({
       nuxt: '>=3.0.0',
     },
   },
-  // Default configuration options
   defaults: {
     productSlug: process.env.PLANSHIP_PRODUCT_SLUG as string,
     clientId: process.env.PLANSHIP_API_CLIENT_ID as string,
@@ -39,10 +38,10 @@ export default defineNuxtModule<ModuleOptions>({
     })
 
     if (!nuxt.options.runtimeConfig.public.planship.productSlug) {
-      console.error('Planship product slug is missing, set it either in `nuxt.config.js` or via PLANSHIP_PRODUCT_SLUG env variable')
+      console.error('Planship product slug is missing, set it in `nuxt.config.js` or via the PLANSHIP_PRODUCT_SLUG environment variable')
     }
     if (!nuxt.options.runtimeConfig.public.planship.clientId || !nuxt.options.runtimeConfig.planship.clientSecret) {
-      console.error('Planship client credentials are missing, set it either in `nuxt.config.js` or via PLANSHIP_API_CLIENT_ID and PLANSHIP_API_CLIENT_SECRET variables')
+      console.error('Planship client credentials are missing, set them in `nuxt.config.js` or via the PLANSHIP_API_CLIENT_ID and PLANSHIP_API_CLIENT_SECRET environment variables')
     }
 
     addServerHandler({

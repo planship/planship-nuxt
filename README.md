@@ -1,8 +1,10 @@
 # planship-nuxt
 
-Welcome to `@planship/nuxt`, a [Nuxt module](https://nuxt.com/modules) that makes [Planship](https://planship.io) intergration with [Nuxt](https://nuxt.com) apps a breeze. This module is based on the [`@planship/vue`](https://github.com/planship/planship-vue) plugin and [`@planship/fetch`](https://github.com/planship/planship-js/tree/master/packages/fetch) library.
 
-A complete, working example of a Nuxt app that used the `@planship/nuxt` module can be found at https://github.com/planship/planship-nuxt-demo
+Welcome to `@planship/nuxt`, a [Nuxt module](https://nuxt.com/modules) that enables entitlements, metering, plan packaging, and customer/subscription management in your Nuxt app powered by [Planship](https://planship.io). This module is based on the [`@planship/vue`](https://github.com/planship/planship-vue) plugin and [`@planship/fetch`](https://github.com/planship/planship-js/tree/master/packages/fetch) library.
+
+
+A complete, working example of a Nuxt app that uses this module can be found at https://github.com/planship/planship-nuxt-demo.
 
 # Getting started
 
@@ -20,11 +22,11 @@ Then, add `@planship/nuxt` to the `modules` section of your `nuxt.config.ts`:
 
 ```ts
 export default defineNuxtConfig({
-  modules: ['@planship/nuxt'],
+  modules: ['@planship/nuxt']
 })
 ```
 
-Finally, configure your Planship product slug and authentication credentials inside `defineNuxtConfig` or via the environmental variables.
+Finally, configure your Planship product slug and authentication credentials inside `defineNuxtConfig` or via environment variables.
 
 ```ts
 export default defineNuxtConfig({
@@ -32,26 +34,26 @@ export default defineNuxtConfig({
   planship: {
     productSlug: '<YOUR_PLANSHIP_PRODUCT_SLUG',
     clientId: '<YOUR_PLANSHIP_API_CLIENT_ID>',
-    clientSecret: '<YOUR_PLANSHIP_API_CLIENT_SECRET>',
+    clientSecret: '<YOUR_PLANSHIP_API_CLIENT_SECRET>'
   }
 }
 ```
 
-### Configurtation options
+### Configuration options
 
 ***`productSlug`***
 
-Your [Planship product slug](https://docs.planship.io/concepts/products/). The slug can be also defined via the `PLANSHIP_PRODUCT_SLUG` variable.
+Your [Planship product slug](https://docs.planship.io/concepts/products/). The slug can be also defined via the `PLANSHIP_PRODUCT_SLUG` environment variable.
 
 ***`clientId`*** and ***`clientSecret`***
 
-Your Planship [authentication credentials](https://docs.planship.io/integration/#authentication-and-security). They can be also defined via the `PLANSHIP_API_CLIENT_ID` and `PLANSHIP_API_CLIENT_SECRET` variables.
+Your Planship [authentication credentials](https://docs.planship.io/integration/#authentication-and-security). They can be also defined via the `PLANSHIP_API_CLIENT_ID` and `PLANSHIP_API_CLIENT_SECRET` environment variables.
 
 # Usage
 
 ## Composables
 
-The `@planship/nuxt` module exports two composables implemented by the `@planship/vue` plugin: `usePlanshipCustomer` and `usePlanship`. The `@planship/vue` plugin is universal-mode friendly, meaning that these composables can be used for both server and client side rendering.
+The `@planship/nuxt` module exports two composables implemented by the `@planship/vue` plugin: `usePlanshipCustomer` and `usePlanship`. The `@planship/vue` plugin is universal-mode friendly, meaning that these composables can be used for both server-side and client-side rendering.
 
 ### Working with entitlements and other customer data - `usePlanshipCustomer`
 
@@ -81,7 +83,7 @@ When `usePlanshipCustomer` is used on the client-side, entitlements are automati
 When used in the universal rendering mode, the data is fetched in the following fashion:
 1. The plugin is initialized on the server and Planship entitlements and subscription data are fetched so they can be used for server-side rendering.
 2. The plugin is initialized on the client using the data already fetched on the server.
-3. THe pluging re-hydrates itslef on the client, and initiates a websocket connection for continuous entitlements updates from Planship.
+3. The pluging re-hydrates itself on the client and initiates a websocket connection for continuous entitlements updates from Planship.
 
 #### Composite return value for both `sync` and `async` operations
 
@@ -93,7 +95,7 @@ If you want to block code execution until customer entitlements are fetched from
 const { entitlements } = await usePlanshipCustomer('<CURRENT_CUSTOMER_ID>')
 ```
 
-If you want to return immediately and let entitlements be fetched asynchronously, call `usePlanshipCustomer` as a synchronous function:
+If you want to return immediately and fetch entitlements asynchronously, simply call usePlanshipCustomer without `await`:
 
 ```ts
 const { entitlements } = usePlanshipCustomer('<CURRENT_CUSTOMER_ID>')
@@ -123,7 +125,7 @@ Below is an example Nuxt setup script that retrieves a list of subscriptions for
 
 When working with the entitlements dictionary returned by `usePlanshipCustomer`, it can be useful to wrap it in an object with getters for individual levers. This is especially advantageous in IDEs like VS Code where it enables autocomplete for `entitlements`.
 
-To accomplish this, define an entitlements class for your product, and pass it to `usePlanshipCustomer`.
+To accomplish this, define an entitlements class for your product and pass it to `usePlanshipCustomer`.
 
 ```vue
 <script setup>
@@ -163,7 +165,7 @@ Below is an example Nuxt setup script that retrieves a list of Planship plans us
 <script setup>
   import { usePlanship } from '@planship/nuxt'
 
-  const { planshipApiClient } = usePlanship('<CURRENT_CUSTOMER_ID>')
+  const { planshipApiClient } = usePlanship()
 
   const { data: plans } = await useAsyncData('plans', async () => {
     return await planshipApiClient.listPlans()
