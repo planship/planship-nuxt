@@ -10,6 +10,8 @@ export interface ModuleOptions {
 
 export * from './types'
 
+export { type TPlanshipCustomerContextPromiseMixin, type IPlanshipCustomerContext, EntitlementsBase } from '@planship/vue'
+
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: '@planship/nuxt',
