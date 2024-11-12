@@ -4,7 +4,7 @@
 Welcome to `@planship/nuxt`, a [Nuxt module](https://nuxt.com/modules) that enables entitlements, metering, plan packaging, and customer/subscription management in your Nuxt app powered by [Planship](https://planship.io). This module is based on the [`@planship/vue`](https://github.com/planship/planship-vue) plugin and [`@planship/fetch`](https://github.com/planship/planship-js/tree/master/packages/fetch) library.
 
 
-A complete, working example of a Nuxt app that uses this module can be found at https://github.com/planship/planship-nuxt-demo.
+A complete, working example of a Nuxt app that uses this module can be found at https://github.com/planship/planship-nuxt-example.
 
 # Getting started
 
@@ -194,6 +194,6 @@ export default defineEventHandler(async (event) => {
 
 ## Links
 
-- [Planship Nuxt demo app](https://github.com/planship/planship-nuxt-demo)
+- [Planship Nuxt example app](https://github.com/planship/planship-nuxt-example)
 - [Planship documentation](https://docs.planship.io)
 - [Planship console](https://app.planship.io)
