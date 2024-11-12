@@ -1,4 +1,5 @@
 import { addPlugin, addServerHandler, addTemplate, createResolver, defineNuxtModule } from '@nuxt/kit'
+import type { Nuxt } from '@nuxt/schema'
 import { defu } from 'defu'
 
 export interface ModuleOptions {
@@ -26,7 +27,7 @@ export default defineNuxtModule<ModuleOptions>({
     clientSecret: process.env.PLANSHIP_API_CLIENT_SECRET as string,
     debugLogging: false,
   },
-  setup(options, nuxt) {
+  setup(options: ModuleOptions, nuxt: Nuxt) {
     const resolver = createResolver(import.meta.url)
 
     nuxt.options.runtimeConfig.public.planship = defu(nuxt.options.runtimeConfig.public.planship, {
