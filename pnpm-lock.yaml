@@ -12,8 +12,8 @@ importers:
         specifier: ^3.14.159
         version: 3.14.159(magicast@0.3.5)(rollup@4.26.0)
       '@planship/vue':
-        specifier: 0.3.4
-        version: 0.3.4
+        specifier: 0.3.5
+        version: 0.3.5
       defu:
         specifier: ^6.1.4
         version: 6.1.4
@@ -947,14 +947,14 @@ packages:
     resolution: {integrity: sha512-cq8o4cWH0ibXh9VGi5P20Tu9XF/0fFXl9EUinr9QfTM7a7p0oTA4iJRCQWppXR1Pg8dSM0UCItCkPwsk9qWWYA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
-  '@planship/fetch@0.3.2':
-    resolution: {integrity: sha512-u9AhXxttCt/J2+Q++uxqFGliPWedk5gSXoMMKKSSRUJJLIC4i+rYZHYN6643VheCaVrIZmeg5cngVUSEHfT4dQ==}
+  '@planship/fetch@0.3.3':
+    resolution: {integrity: sha512-zeJHglIOG8E2Cj7AhtlSeIo4GxPX6/yy9hmPOE3qX8ao87XPGyXTNEnRaExrm3IVjaW4LI33bb+hsMgg/tqu6Q==}
 
   '@planship/models@0.3.2':
     resolution: {integrity: sha512-PMfuIegyXIIReoQ6mo11HcNG0eGwZQRN6YKYlGcGHNzPyg8Ls2rBWqEtMo3Him956HlE3RmyYmO4oO89ejCo4Q==}
 
-  '@planship/vue@0.3.4':
-    resolution: {integrity: sha512-v6oKk2I8vMcMHNXEjg5G1Nw8hgiNB0uPqarImwyYhKF0Wog2Spm61F6orH2AXaNeybpBpEyHEvVwUTnbzW5ssg==}
+  '@planship/vue@0.3.5':
+    resolution: {integrity: sha512-3DZLnhiRbeQ0FXhN/J/gYBtloUdm8DgA6zi25jsBlll7vVRmpqJI3b3ZFZWE+7vQhIPBDXevMZxYtSFvB46Ohg==}
 
   '@polka/url@1.0.0-next.28':
     resolution: {integrity: sha512-8LduaNlMZGwdZ6qWrKlfa+2M4gahzFkprZiAt2TF8uS0qQgBizKXpXURqvTJ4WtmupWxaLqjRb2UCTe72mu+Aw==}
@@ -5096,15 +5096,15 @@ snapshots:
 
   '@pkgr/core@0.1.1': {}
 
-  '@planship/fetch@0.3.2':
+  '@planship/fetch@0.3.3':
     dependencies:
       '@planship/models': 0.3.2
 
   '@planship/models@0.3.2': {}
 
-  '@planship/vue@0.3.4':
+  '@planship/vue@0.3.5':
     dependencies:
-      '@planship/fetch': 0.3.2
+      '@planship/fetch': 0.3.3
 
   '@polka/url@1.0.0-next.28': {}
 
