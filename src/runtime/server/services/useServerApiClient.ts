@@ -13,6 +13,8 @@ export function useServerApiClient() {
       },
       {
         debugLogging: useRuntimeConfig().public.planship.debugLogging,
+        baseUrl: useRuntimeConfig().public.planship.baseUrl,
+        webSocketUrl: useRuntimeConfig().public.planship.webSocketUrl,
       },
     )
   }

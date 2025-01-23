@@ -10,6 +10,8 @@ export default defineNuxtPlugin((nuxtApp: NuxtApp) => {
   nuxtApp.vueApp.use(
     PlanshipPlugin,
     {
+      baseUrl: useRuntimeConfig().public.planship.baseUrl,
+      webSocketUrl: useRuntimeConfig().public.planship.webSocketUrl,
       slug: useRuntimeConfig().public.planship.productSlug,
       auth: getAccessToken,
       useState,

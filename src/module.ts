@@ -3,6 +3,8 @@ import type { Nuxt } from '@nuxt/schema'
 import { defu } from 'defu'
 
 export interface ModuleOptions {
+  baseUrl: string
+  webSocketUrl: string
   productSlug: string
   clientId: string
   clientSecret: string
@@ -22,6 +24,8 @@ export default defineNuxtModule<ModuleOptions>({
     },
   },
   defaults: {
+    baseUrl: process.env.PLANSHIP_BASE_URL as string,
+    webSocketUrl: process.env.PLANSHIP_WEBSOCKET_URL as string,
     productSlug: process.env.PLANSHIP_PRODUCT_SLUG as string,
     clientId: process.env.PLANSHIP_API_CLIENT_ID as string,
     clientSecret: process.env.PLANSHIP_API_CLIENT_SECRET as string,
@@ -31,6 +35,8 @@ export default defineNuxtModule<ModuleOptions>({
     const resolver = createResolver(import.meta.url)
 
     nuxt.options.runtimeConfig.public.planship = defu(nuxt.options.runtimeConfig.public.planship, {
+      baseUrl: options.baseUrl,
+      webSocketUrl: options.webSocketUrl,
       productSlug: options.productSlug,
       clientId: options.clientId,
       debugLogging: options.debugLogging,

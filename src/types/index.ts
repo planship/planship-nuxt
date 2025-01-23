@@ -4,6 +4,8 @@ declare module '@nuxt/schema' {
       productSlug: string
       clientId: string
       debugLogging?: boolean
+      baseUrl?: string
+      webSocketUrl?: string
     }
   }
 
