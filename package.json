@@ -1,6 +1,6 @@
 {
   "name": "@planship/nuxt",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "description": "Planship SDK for Nuxt",
   "repository": "https://github.com/planship/planship-nuxt",
   "author": "pawel@planship.io",
@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.15.2",
-    "@planship/vue": "0.3.6",
+    "@planship/vue": "0.3.7",
     "defu": "^6.1.4"
   },
   "devDependencies": {
