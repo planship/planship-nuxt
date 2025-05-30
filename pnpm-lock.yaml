@@ -12,8 +12,8 @@ importers:
         specifier: ^3.15.2
         version: 3.15.2(magicast@0.3.5)(rollup@4.32.0)
       '@planship/vue':
-        specifier: 0.3.7
-        version: 0.3.7
+        specifier: 0.3.8
+        version: 0.3.8
       defu:
         specifier: ^6.1.4
         version: 6.1.4
@@ -862,8 +862,8 @@ packages:
   '@planship/models@0.3.4':
     resolution: {integrity: sha512-vIClT0sJAhkM8bnIzoFkL6j0/2RE9kuGKKRLOIp4cRyEeonF23fWZ/ucSy6y77pH0DJaAR8daD5w1xdHRDHSTQ==}
 
-  '@planship/vue@0.3.7':
-    resolution: {integrity: sha512-M2aNcDh372K/H2wf1W1yvy9LOPVTARCVfrHVESr5G9rwg3draopEMWR3685H0p/H68Mmex9UA3QiFr6wOqrnWg==}
+  '@planship/vue@0.3.8':
+    resolution: {integrity: sha512-y5DFmDeWMQb+sXykdwxTgKFEjyco23A632R6b27dUN0g6+V3tU46iZ8D4yPUJrrk6yxiPOpgtnwnr9UWlDUtmg==}
 
   '@polka/url@1.0.0-next.28':
     resolution: {integrity: sha512-8LduaNlMZGwdZ6qWrKlfa+2M4gahzFkprZiAt2TF8uS0qQgBizKXpXURqvTJ4WtmupWxaLqjRb2UCTe72mu+Aw==}
@@ -5209,7 +5209,7 @@ snapshots:
 
   '@planship/models@0.3.4': {}
 
-  '@planship/vue@0.3.7':
+  '@planship/vue@0.3.8':
     dependencies:
       '@planship/fetch': 0.3.4
 
